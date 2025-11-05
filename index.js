@@ -8,7 +8,17 @@ import cors from "cors"
 
 const app = express();
 
-app.use(cors())
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://cicada-frontend.onrender.com"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,  
+  })
+);
 dotenv.config();
 
 connectDB();
