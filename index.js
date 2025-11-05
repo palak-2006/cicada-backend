@@ -13,7 +13,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:3000",
-      "https://cicada-frontend.onrender.com"
+      "https://cicada-frontend.onrender.com",
+      "https://cicada-old.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,  
