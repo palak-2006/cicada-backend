@@ -36,7 +36,7 @@ const teamSchema = mongoose.Schema({
   },
   current_level: {
     type: Number,
-    default: 0,
+    default: 1,
   },
 });
 

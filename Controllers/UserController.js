@@ -63,7 +63,7 @@ const signupController = async (req, res) => {
       // return everything except password
       const { password, ...rest } = newTeam._doc;
       console.log(rest, " registered team details");
-      res.status(201).json(rest);
+      res.status(201).json({team: rest});
     } else {
       res.status(400).json({ error: "Invalid user data" });
     }

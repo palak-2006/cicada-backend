@@ -1,4 +1,4 @@
-import User from "../Models/User.js";
+import Team from "../Models/Team.js";
 import jwt from "jsonwebtoken";
 
 const protectRoute = async (req, res, next) => {
@@ -9,11 +9,11 @@ const protectRoute = async (req, res, next) => {
             return res.status(401).json({ error: "Unauthorized: No token provided" });
         }
         const decoded = jwt.verify(token, "thisismysecrect");
-        const user = await User.findById(decoded.userId).select("-password");
-        if (!user) {
-            return res.status(404).json({ error: "Unauthorized: User not found" });
+        const team = await Team.findById(decoded.userId).select("-password");
+        if (!team) {
+            return res.status(404).json({ error: "Unauthorized: Team not found" });
         }
-        req.user = user;
+        req.team = team;
         next();
     } catch (error) {
         console.error("Error in protectRoute:", error);

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { connectDB } from './db/db.js';
 import cookieParser from "cookie-parser";
 import UserRoute from './Routes/UserRoute.js';
+import AnsRoute from './Routes/AnsRoute.js';
 import path from "path";
 import cors from "cors"
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/api/team',UserRoute)
+app.use('/api/submit',AnsRoute)
 
 
 const port = process.env.PORT;
